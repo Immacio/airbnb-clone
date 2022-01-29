@@ -74,7 +74,10 @@ function Header({ placeholder }) {
           type="text"
           placeholder={placeholder || 'Start your search'}
         />
-        <SearchIcon className="hidden h-8 cursor-pointer rounded-full bg-red-400 p-2 text-white md:mx-2 md:inline-flex" />
+        <SearchIcon
+          onClick={search}
+          className="hidden h-8 cursor-pointer rounded-full bg-red-400 p-2 text-white md:mx-2 md:inline-flex"
+        />
       </div>
       {/* Right */}
       <div className="flex items-center justify-end space-x-4 text-gray-500 ">

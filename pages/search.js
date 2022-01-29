@@ -3,9 +3,10 @@ import Footer from '../components/Footer'
 import { useRouter } from 'next/router'
 import format from 'date-fns/format'
 import InfoCard from '../components/InfoCard'
+import Map from '../components/Map'
 
 function search({ searchResults }) {
-  // Destructures the query object from nextjs router into our own local variables
+  // Destructures the searchResults variable into its key:value pairs
   const router = useRouter()
   const { location, startDate, endDate, noOfGuests } = router.query
 
@@ -18,8 +19,9 @@ function search({ searchResults }) {
   return (
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
-      <main className="flex">
-        <section className="flex-grow px-6 pt-14">
+
+      <main className="flex pb-10">
+        <section className="mx-auto max-w-6xl flex-grow px-6 pt-14">
           <p className="text-xs">
             300+ Stays - {range} - for {noOfGuests} guests
           </p>
@@ -36,10 +38,14 @@ function search({ searchResults }) {
           </div>
 
           <div className="flex flex-col">
+            {/* Map through the searchResults object and places each result with
+            their corresponding key:values in an InfoCard */}
             {searchResults.map(
-              ({ img, location, title, description, star, price, total }) => (
+              (
+                { img, location, title, description, star, price, total } // Destructuring of the searchResults object
+              ) => (
                 <InfoCard
-                  key={img} // Currently don't have an identifier in the JSON
+                  key={img} // Currently don't have an identifier in the JSON so we use the image as a unique placeholder
                   img={img}
                   location={location}
                   title={title}
@@ -52,13 +58,20 @@ function search({ searchResults }) {
             )}
           </div>
         </section>
+
+        <section className=" hidden xl:inline-flex xl:min-w-[600px]">
+          <Map searchResults={searchResults} />
+        </section>
       </main>
+
       <Footer />
     </div>
   )
 }
 
 export default search
+
+// Fetches the search results data from a JSON API and stores it in a searchResults variable
 
 export async function getServerSideProps() {
   const searchResults = await fetch('https://jsonkeeper.com/b/5NPS').then(

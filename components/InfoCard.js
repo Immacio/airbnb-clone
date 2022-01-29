@@ -4,6 +4,7 @@ import Image from 'next/image'
 import React from 'react'
 
 function InfoCard({ img, location, title, description, star, price, total }) {
+  // ES6 Destructing of the searchResults object
   return (
     <div className="flex cursor-pointer border-b py-7 px-2 pr-4 transition duration-200 ease-out first:border-t hover:opacity-80 hover:shadow-lg">
       <div className="relative h-24 w-40 flex-shrink-0 md:h-52 md:w-80">
