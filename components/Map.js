@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker, Popup } from 'react-map-gl'
 import { getCenter } from 'geolib'
+import Image from 'next/image'
+import { StarIcon } from '@heroicons/react/solid'
 
 function Map({ searchResults }) {
   // Destructure the searchResults object into its key:value pairs
@@ -59,8 +61,24 @@ function Map({ searchResults }) {
               onClose={() => setSelectedLocation({})} // Reset the state variable to an empty object
               latitude={results.lat}
               longitude={results.long}
+              className="rounded-full"
             >
-              {results.title}
+              <div className="h-48 w-80">
+                <Image
+                  className="h-48 w-80"
+                  layout="fill"
+                  src={results.img}
+                  objectFit="cover"
+                />
+              </div>
+              <div className="absolute top-[45%] w-1/2 rounded-md bg-black py-2 pl-3 text-white opacity-80">
+                <h1 className="text-sm font-semibold">{results.title}</h1>
+                <h3 className="text-lg font-bold">{results.price}</h3>
+                <p className="flex items-center text-sm">
+                  <StarIcon className=" h-5 pr-1" />
+                  {results.star}
+                </p>
+              </div>
             </Popup>
           ) : (
             false

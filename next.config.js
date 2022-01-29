@@ -2,7 +2,11 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['upload.wikimedia.org', 'links.papareact.com'],
+    domains: [
+      'upload.wikimedia.org',
+      'links.papareact.com',
+      'cdn.dribbble.com',
+    ],
   },
   env: {
     mapbox_key:
