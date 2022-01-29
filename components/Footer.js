@@ -33,6 +33,18 @@ function Footer() {
         <p>Notbnb Plus</p>
         <p>Notbnb Luxe</p>
       </div>
+      <div className="border-t">
+        <h2 className="py-4">
+          © Built by{' '}
+          <a
+            className="hover:text-gray-500"
+            target="_new"
+            href="https://mauricewillis.xyz"
+          >
+            Maurice Willis
+          </a>
+        </h2>
+      </div>
     </div>
   )
 }
