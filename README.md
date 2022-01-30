@@ -1,4 +1,4 @@
-# Airbnb clone by @Immacio
+# Notbnb - an Airbnb clone by @Immacio
 
 Project was developed using React, Next.js, Tailwind CSS and MapBox.
 
