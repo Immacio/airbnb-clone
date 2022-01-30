@@ -12,6 +12,7 @@ import 'react-date-range/dist/theme/default.css' // theme css file
 import { DateRangePicker } from 'react-date-range'
 import { useRouter } from 'next/router'
 import logo from './Notbnb.png'
+import { HomeIcon } from '@heroicons/react/outline'
 
 function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState('')
@@ -39,7 +40,7 @@ function Header({ placeholder }) {
     // Passes the Next.js router in a varaible
     router.push({
       // Pushes the following object with the key:value pairs to the router
-      pathname: '/search', // A initial pathname e.g. www.xxx.com/search
+      pathname: '/search', // An initial pathname e.g. www.xxx.com/search
       query: {
         location: searchInput, // Queries the location as the searchInput
         startDate: startDate.toISOString(), // Queries the startDate and converts it into a readable string
@@ -54,16 +55,10 @@ function Header({ placeholder }) {
       {/* Left */}
       <div
         onClick={() => router.push('/')}
-        className="relative my-auto flex h-10 items-center"
+        className="relative my-auto flex h-10 items-center text-red-400"
       >
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Airbnb_Logo_B%C3%A9lo.svg/2560px-Airbnb_Logo_B%C3%A9lo.svg.png"
-          layout="fill"
-          objectFit="contain"
-          objectPosition="left"
-          className="cursor-pointer"
-          height="150px"
-        />
+        <HomeIcon className="h-8 cursor-pointer" />
+        <p className="cursor-pointer text-2xl font-bold">Notbnb</p>
       </div>
       {/* Middle */}
       <div className="flex items-center rounded-full py-2 md:border-2 md:shadow-sm">

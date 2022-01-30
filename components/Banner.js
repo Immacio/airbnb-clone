@@ -7,6 +7,7 @@ function Banner() {
         src="https://cdn.dribbble.com/users/257709/screenshots/5257468/next_gen-land_1_4x.png"
         layout="fill"
         objectFit="cover"
+        className="opacity-90"
       />
       <div className="absolute top-1/2 w-full text-center">
         <p className="text-xl font-bold text-white sm:text-2xl lg:text-4xl">
