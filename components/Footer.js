@@ -42,6 +42,14 @@ function Footer() {
             href="https://mauricewillis.xyz"
           >
             Maurice Willis
+          </a>{' '}
+          |{' '}
+          <a
+            className="hover:text-gray-500"
+            target="_new"
+            href="https://github.com/immacio"
+          >
+            Github
           </a>
         </h2>
       </div>
